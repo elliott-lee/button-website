@@ -5,6 +5,7 @@ import '@fontsource/dm-sans/700.css';
 import '@fontsource/instrument-serif/400-italic.css';
 import './style.css';
 import './experience.css';
+import './positioning.css';
 
 const paths = {
   grid: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
@@ -65,25 +66,25 @@ function dashboardRows() {
 
 document.querySelector('.product-scene').innerHTML = `
   <aside class="app-sidebar">
-    <div class="app-brand"><span class="relay-logo">r<span>↗</span></span><b>relay</b><span class="app-demo">DEMO</span><span class="workspace-chevron">⌄</span></div>
+    <div class="app-brand"><span class="workspace-symbol">${icon('grid')}</span><div><b>Your workspace</b><small>EXAMPLE CUSTOM BUILD</small></div></div>
     <button class="app-search" data-search>${icon('search')}<span>Quick search</span><kbd>⌘ K</kbd></button>
     <div class="app-nav">${[['home','Overview'],['people','Customers'],['layers','Projects'],['chart','Reports']].map(([i,n]) => `<button class="${n === 'Overview' ? 'selected' : ''}" data-view="${n}">${icon(i)}<span>${n}</span>${n === 'Customers' ? '<small>48</small>' : ''}</button>`).join('')}</div>
     <div class="sidebar-label">YOUR WORKSPACE <span>+</span></div><div class="workspace-item"><i class="workspace-dot violet"></i> Sales pipeline</div><div class="workspace-item"><i class="workspace-dot mint"></i> Customer success</div><div class="workspace-item"><i class="workspace-dot peach"></i> Operations</div>
     <div class="sidebar-connections"><span class="sidebar-label">CONNECTED SOURCES</span><div class="connected-source"><span class="source-logo notion">N</span> Notion <i></i></div><div class="connected-source"><span class="source-logo sheets">▤</span> Google Sheets <i></i></div><div class="connected-source"><span class="source-logo stripe">s</span> Stripe <i></i></div><div class="connected-source"><span class="source-logo hubspot">☷</span> HubSpot <i></i></div></div>
-    <div class="sidebar-footer"><span class="user-avatar">JD</span><span><b>Jamie Davis</b><small>Button workspace</small></span><span>⌄</span></div>
+    <div class="sidebar-footer"><span class="user-avatar">JD</span><span><b>Jamie Davis</b><small>Example team</small></span><span>⌄</span></div>
   </aside>
-  <div class="app-main"><div class="app-topbar"><div>${icon('grid')}<span>Workspace</span><span>/</span><b id="app-breadcrumb">Overview</b></div><div><span class="sync-status"><i></i> All changes synced</span><span class="topbar-divider"></span>${icon('bell')}<span class="mini-avatar">JD</span></div></div>
-    <div class="app-content"><div class="app-welcome"><div><span class="app-eyebrow">YOUR BUSINESS, AT A GLANCE</span><h3 id="app-title">A little clarity. A lot of possibility. <span>✳</span></h3><p>Everything you need to keep things moving, all in one place.</p></div><span class="date-range">${icon('grid')} This month <span>⌄</span></span></div>
+  <div class="app-main"><div class="app-topbar"><div>${icon('grid')}<span>Illustrative workspace</span><span>/</span><b id="app-breadcrumb">Overview</b></div><div><span class="sync-status"><i></i> All changes synced</span><span class="topbar-divider"></span>${icon('bell')}<span class="mini-avatar">JD</span></div></div>
+    <div class="app-content"><div class="app-welcome"><div><span class="app-eyebrow">AN EXAMPLE OF WHAT WE CAN BUILD FOR YOU</span><h3 id="app-title">Your operations, connected. <span>✳</span></h3><p>A custom view of the people, processes, and data that matter to your team.</p></div><span class="date-range">${icon('grid')} This month <span>⌄</span></span></div>
       <div class="metrics"><div class="metric"><span>Total revenue ${icon('chart')}</span><strong>$52,650<span class="mini-trend">↗</span></strong><div><span class="metric-change">↗ 18.6%</span><small>vs. last month</small></div><div class="sparkline"><i style="--h:20%"></i><i style="--h:35%"></i><i style="--h:29%"></i><i style="--h:45%"></i><i style="--h:38%"></i><i style="--h:56%"></i><i style="--h:49%"></i><i style="--h:70%"></i><i style="--h:60%"></i><i style="--h:85%"></i><i style="--h:78%"></i><i style="--h:100%"></i></div></div>
       <div class="metric"><span>Active customers ${icon('people')}</span><strong>48 <small class="metric-badge">+6 this month</small></strong><div><span class="metric-change">↗ 14.2%</span><small>vs. last month</small></div><div class="avatar-stack"><i class="purple">OR</i><i class="orange">PB</i><i class="blue">LS</i><i class="pink">DW</i><i>+44</i></div></div>
       <div class="metric time-metric"><span>Time given back ${icon('layers')}</span><strong>32.5 <small>hrs</small></strong><div><span class="metric-change">↗ 24.8%</span><small>more time for good work</small></div><div class="time-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
-      <div class="app-table"><div class="table-heading"><div><b id="table-title">Customer overview</b><span class="count-badge" id="customer-count">48 customers</span></div><div><label class="table-search">${icon('search')}<input aria-label="Search demo customers" placeholder="Search customers…" /></label><button class="filter-button" aria-pressed="false">${icon('filter')} Filter</button><button class="app-add" data-add>+ Add customer</button></div></div><div class="table-scroll"><table><thead><tr><th><span class="table-checkbox"></span></th><th>Company <span>↓</span></th><th>Contact</th><th>Status</th><th>Revenue</th><th>Source</th><th></th></tr></thead><tbody>${dashboardRows()}</tbody></table></div><div class="table-footer"><span id="table-results">Showing 5 of 48 customers</span><span><i class="green-dot"></i> Data that stays in sync. Work that stays in flow.</span></div></div>
-    </div><div class="app-statusbar"><span>${icon('link')} 4 sources connected <span class="statusbar-separator">·</span> Last synced just now</span><span>Made to work together. <span class="tiny-star">✳</span></span></div>
+      <div class="app-table"><div class="table-heading"><div><b id="table-title">Customer overview</b><span class="count-badge" id="customer-count">48 customers</span></div><div><label class="table-search">${icon('search')}<input aria-label="Search sample customers" placeholder="Search customers…" /></label><button class="filter-button" aria-pressed="false">${icon('filter')} Filter</button><button class="app-add" data-add>+ Add customer</button></div></div><div class="table-scroll"><table><thead><tr><th><span class="table-checkbox"></span></th><th>Company <span>↓</span></th><th>Contact</th><th>Status</th><th>Revenue</th><th>Source</th><th></th></tr></thead><tbody>${dashboardRows()}</tbody></table></div><div class="table-footer"><span id="table-results">Showing 5 of 48 customers</span><span><i class="green-dot"></i> Data that stays in sync. Work that stays in flow.</span></div></div>
+    </div><div class="app-statusbar"><span>${icon('link')} Illustrative build <span class="statusbar-separator">·</span> 4 example sources</span><span>Sample data. Custom software possibilities. <span class="tiny-star">✳</span></span></div>
   </div>`;
 
 const codeLines = [
   ['comment', '// Good architecture is invisible. Until you need it.'],
-  ['', '<span class="syntax-purple">import</span> { connect, protect } <span class="syntax-purple">from</span> <span class="syntax-green">"@relay/core"</span>;'],
+  ['', '<span class="syntax-purple">import</span> { connect, protect } <span class="syntax-purple">from</span> <span class="syntax-green">"./integrations"</span>;'],
   ['', ''],
   ['', '<span class="syntax-purple">export const</span> <span class="syntax-blue">workspace</span> = <span class="syntax-yellow">defineWorkspace</span>({'],
   ['', '  name: <span class="syntax-green">"your-business"</span>,'],
@@ -114,7 +115,7 @@ document.querySelector('.architecture-scene').innerHTML = `
 
 document.querySelector('.wireframe-scene').innerHTML = `
   <div class="wireframe-top"><span class="wire-logo">✳</span><b>The thinking before the making.</b><span>BUTTON STUDIO <i>/</i> PROTOTYPE 001</span></div>
-  <div class="wireframe-canvas"><div class="wire-note note-one"><span>01</span> Start with what matters.<svg viewBox="0 0 100 70"><path d="M5 3Q90 0 74 55m-10-9 10 12 13-11"/></svg></div><div class="wireframe-app"><aside><div class="wire-brand">[ relay ]</div><div class="wire-block short"></div><div class="wire-nav active">⌂ &nbsp; Overview</div><div class="wire-nav">♙ &nbsp; Customers</div><div class="wire-nav">▱ &nbsp; Projects</div><div class="wire-nav">↗ &nbsp; Reports</div><div class="wire-sidebar-lines"><i></i><i></i><i></i></div></aside><div class="wire-main"><div class="wire-appbar">Workspace <span>/</span> Overview <i></i></div><div class="wire-content"><h3>Your business at a glance.</h3><div class="wire-block medium"></div><div class="wire-metrics">${['Revenue','Customers','Time saved'].map(n => `<div><span>${n}</span><div class="wire-block"></div><svg viewBox="0 0 100 30"><path d="m0 25 12-8 10 4 14-12 12 7L65 4l10 7L100 0"/></svg></div>`).join('')}</div><div class="wire-table-title">Customer overview <span>[ + Add customer ]</span></div><div class="wire-table">${[0,1,2,3].map(() => '<div><i></i><span></span><span></span><b>— —</b><span></span></div>').join('')}</div></div></div></div><div class="wire-note note-two">Less noise.<br>More clarity.<svg viewBox="0 0 100 70"><path d="M95 10Q30-10 14 55m-3-14 2 17 17-4"/></svg></div><div class="wire-note note-three">Test it. Learn. Make it better. <span>↗</span></div><div class="prototype-pill"><span class="status-dot"></span> PROTOTYPED WITH PEOPLE. NOT ASSUMPTIONS.</div></div>`;
+  <div class="wireframe-canvas"><div class="wire-note note-one"><span>01</span> Start with what matters.<svg viewBox="0 0 100 70"><path d="M5 3Q90 0 74 55m-10-9 10 12 13-11"/></svg></div><div class="wireframe-app"><aside><div class="wire-brand">[ workspace ]</div><div class="wire-block short"></div><div class="wire-nav active">⌂ &nbsp; Overview</div><div class="wire-nav">♙ &nbsp; Customers</div><div class="wire-nav">▱ &nbsp; Projects</div><div class="wire-nav">↗ &nbsp; Reports</div><div class="wire-sidebar-lines"><i></i><i></i><i></i></div></aside><div class="wire-main"><div class="wire-appbar">Workspace <span>/</span> Overview <i></i></div><div class="wire-content"><h3>Your business at a glance.</h3><div class="wire-block medium"></div><div class="wire-metrics">${['Revenue','Customers','Time saved'].map(n => `<div><span>${n}</span><div class="wire-block"></div><svg viewBox="0 0 100 30"><path d="m0 25 12-8 10 4 14-12 12 7L65 4l10 7L100 0"/></svg></div>`).join('')}</div><div class="wire-table-title">Customer overview <span>[ + Add customer ]</span></div><div class="wire-table">${[0,1,2,3].map(() => '<div><i></i><span></span><span></span><b>— —</b><span></span></div>').join('')}</div></div></div></div><div class="wire-note note-two">Less noise.<br>More clarity.<svg viewBox="0 0 100 70"><path d="M95 10Q30-10 14 55m-3-14 2 17 17-4"/></svg></div><div class="wire-note note-three">Test it. Learn. Make it better. <span>↗</span></div><div class="prototype-pill"><span class="status-dot"></span> PROTOTYPED WITH PEOPLE. NOT ASSUMPTIONS.</div></div>`;
 
 document.querySelector('.process-scene').innerHTML = `
   <div class="process-top"><div><span class="tiny-star">✳</span><b>First, we follow the work.</b></div><span>YOUR BUSINESS <i>/</i> THE BIGGER PICTURE</span></div>
@@ -125,10 +126,10 @@ document.querySelector('.process-scene').innerHTML = `
   <div class="value-stream"><span>THE VALUE STREAM</span><div><i></i><b>Understand</b><span>→</span><b>Connect</b><span>→</span><b>Improve</b><span>→</span><b>Deliver</b><span>→</span><b>Grow</b></div><span>LESS FRICTION. MORE REVENUE. ↗</span></div></div>`;
 
 const stories = [
-  {title: 'Everything, working together.', copy: 'All your data, finally in one place. Less busywork for your team. More happy customers.'},
-  {title: 'Confidence, built in.', copy: 'Thoughtful architecture. Secure foundations. Clean, elegant code that quietly does its job.'},
-  {title: 'Clarity before code.', copy: 'Prototyped with you. Tested against real needs. The best software starts with a clear vision.'},
-  {title: 'Your process. More possibility.', copy: 'We follow the work, find the slowdowns, and build tools that turn process improvements into revenue.'},
+  {title: 'We build around your business.', copy: 'Custom apps, connected systems, and simpler workflows. Designed and built with your team.'},
+  {title: 'We engineer the foundation.', copy: 'We design the architecture and write clean, tested code that connects your systems securely.'},
+  {title: 'We prototype with your team.', copy: 'We turn your needs into workflows and prototypes, then test them with the people who will use them.'},
+  {title: 'We start with how you work.', copy: 'We map your processes, find the slowdowns, and shape a software project around the improvements that matter.'},
 ];
 const experience = document.querySelector('.experience');
 const stage = document.querySelector('.stage');
@@ -175,7 +176,7 @@ function setNarrative(layer) {
   document.querySelector('#story-title').textContent = stories[layer].title;
   document.querySelector('#story-copy').textContent = stories[layer].copy;
   document.querySelector('#story-number').textContent = `0${layer + 1} / 04`;
-  document.querySelectorAll('[data-next]').forEach(button => button.setAttribute('aria-label', layer === 3 ? 'Continue to what we build' : `Explore ${tabs[layer + 1].textContent.trim()}`));
+  document.querySelectorAll('[data-next]').forEach(button => button.setAttribute('aria-label', layer === 3 ? 'Continue to our services' : `Explore ${tabs[layer + 1].textContent.trim()}`));
 }
 
 function renderScroll() {
@@ -288,7 +289,7 @@ document.querySelectorAll('[data-view]').forEach(button => button.addEventListen
   selectedView = button.dataset.view;
   document.querySelectorAll('[data-view]').forEach(b => b.classList.toggle('selected', b === button));
   document.querySelector('#app-breadcrumb').textContent = selectedView;
-  const content = { Overview: ['A little clarity. A lot of possibility.','Customer overview'], Customers: ['Every relationship, connected.','Your customer relationships'], Projects: ['Good work, moving forward.','Customers with active projects'], Reports: ['The numbers behind the progress.','Revenue by customer'] };
+  const content = { Overview: ['Your operations, connected.','Customer overview'], Customers: ['Every relationship, connected.','Your customer relationships'], Projects: ['Good work, moving forward.','Customers with active projects'], Reports: ['The numbers behind the progress.','Revenue by customer'] };
   document.querySelector('#app-title').innerHTML = `${content[selectedView][0]} <span>✳</span>`;
   replaceDecorativeGlyphs(document.querySelector('#app-title'));
   document.querySelector('#table-title').textContent = content[selectedView][1];
@@ -323,7 +324,7 @@ function openContact(context = '') {
 document.querySelectorAll('[data-contact]').forEach(b => b.addEventListener('click', () => openContact()));
 document.querySelectorAll('[data-case]').forEach(b => b.addEventListener('click', () => openContact(b.dataset.case === 'operations' ? 'I’d like to connect our data and simplify the way our team works.' : 'I’d like to improve our customer journey with a system built around our process.')));
 document.querySelector('[data-add]').addEventListener('click', () => {
-  dialogContent.innerHTML = `<p class="eyebrow">RELAY · INTERACTIVE DEMO</p><h2 id="dialog-title">Make a<br><em>connection.</em></h2><p class="dialog-intro">Add a customer to this sample workspace. Demo changes stay in this page only.</p><form id="customer-form"><label>Company name<input name="company" required maxlength="60" placeholder="Your company"></label><label>Contact name<input name="person" required maxlength="60" placeholder="Alex Morgan"></label><label>Contact email<input name="email" type="email" required maxlength="254" placeholder="alex@company.com"></label><button class="form-submit">Add demo customer +</button></form>`;
+  dialogContent.innerHTML = `<p class="eyebrow">ILLUSTRATIVE CUSTOM WORKSPACE</p><h2 id="dialog-title">Make a<br><em>connection.</em></h2><p class="dialog-intro">Try adding a record to this example of a custom build. Changes stay in this page only.</p><form id="customer-form"><label>Company name<input name="company" required maxlength="60" placeholder="Your company"></label><label>Contact name<input name="person" required maxlength="60" placeholder="Alex Morgan"></label><label>Contact email<input name="email" type="email" required maxlength="254" placeholder="alex@company.com"></label><button class="form-submit">Add sample customer +</button></form>`;
   dialog.showModal();
   document.querySelector('#customer-form').addEventListener('submit', event => {
     event.preventDefault();

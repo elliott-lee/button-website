@@ -75,8 +75,8 @@
 @container (min-width:900px){
   .app-sidebar{width:208px;padding:24px 15px 0}
   .app-brand{font-size:25px;gap:8px}
-  .relay-logo{width:28px;height:29px;font-size:25px}
-  .relay-logo>span{font-size:14px;line-height:21px}
+  .workspace-symbol{width:28px;height:29px;font-size:25px}
+  .workspace-symbol>span{font-size:14px;line-height:21px}
   .app-demo{font-size:7px;padding:3px 5px}
   .app-search{margin-top:24px;padding:9px 8px;font-size:10px}
   .app-search .icon{width:14px;height:14px}

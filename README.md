@@ -1,6 +1,6 @@
 # Button, Inc.
 
-A responsive studio website with a full-screen, product-first opening and a scroll-driven, four-layer story. Built with Vite and vanilla JavaScript. The supplied PDF logo is included as vector artwork; fonts are bundled locally.
+A responsive studio website with a full-screen illustration of custom software and a scroll-driven, four-layer story. Built with Vite and vanilla JavaScript. The supplied PDF logo is included as vector artwork; fonts are bundled locally.
 
 ## Development
 
@@ -24,7 +24,7 @@ npm run build:preview
 
 Open `dist/button-preview.html`. Its code, styles, fonts, and logo are all embedded. The standard production build also uses relative asset paths for hosting under a URL prefix.
 
-The four layers support scrolling, clicking, keyboard navigation, and reduced motion. The fictional Relay dashboard includes customer search, an active-status filter, sample customer creation, and alternative dashboard views. Demo changes are kept in memory only.
+The four layers support scrolling, clicking, keyboard navigation, and reduced motion. The illustrative custom workspace includes customer search, an active-status filter, sample customer creation, and alternative dashboard views. Demo changes are kept in memory only.
 
 The full-viewport canvas reserves space for navigation and captions on desktop and mobile. Depth effects follow native scroll with small, bounded translations and scaling; code rain also follows scroll rather than looping independently. Reduced motion disables these effects. Resizing preserves your place in the story.
 
