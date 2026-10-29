@@ -1,0 +1,19 @@
+{
+  "name": "button-inc",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "build:preview": "vite build && node scripts/build-preview.mjs",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.2.8",
+    "@fontsource/instrument-serif": "^5.2.8"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
+  }
+}

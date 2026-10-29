@@ -1,0 +1,516 @@
+/* The product is the hero. The page supplies a quiet frame around it. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.site-header{position:fixed;inset:0 0 auto;z-index:30;width:100%;max-width:none;height:68px;padding:0 30px;background:#f7f9fbec;backdrop-filter:blur(14px);border-bottom:1px solid #dce5ed80}
+.site-header .brand-wordmark{width:124px}
+.site-header nav{gap:30px;font-size:11px}
+.header-cta{padding:9px 15px;font-size:11px;gap:23px}
+.header-cta span{font-size:16px}
+.experience.page-width{width:calc(100% - 48px);max-width:none;height:450svh;min-height:0;margin:auto;scroll-margin-top:0}
+.experience-sticky{position:sticky;top:0;height:100svh;min-height:0;padding:84px 0 18px;display:grid;grid-template-rows:16px minmax(0,1fr) 90px;gap:13px;isolation:isolate}
+.experience-sticky:before{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 82% 48%,#72bdff23,transparent 57%);transform:translate3d(0,var(--ambient-drift,0px),0)}
+.stage-meta{margin:0;padding:0 5px;font-size:8px;letter-spacing:1.35px;color:#54778f}
+.stage-meta>span{gap:8px}
+.explore-hint{font-size:9px;letter-spacing:.1px;color:#638195;gap:12px}
+.explore-hint span{font-size:14px}
+.stage-shell{position:relative;min-height:0;min-width:0;isolation:isolate}
+.stage-shell:before,.stage-shell:after{content:'';position:absolute;inset:5px 12px -5px;border:1px solid #bed1e3;border-radius:13px;background:#e6eff8;z-index:-1;pointer-events:none}
+.stage-shell:before{inset:10px 24px -9px;background:#f1f5f9;border-color:#d1dfe9;z-index:-2}
+.stage{height:100%;width:100%;aspect-ratio:auto;border-radius:12px;border:1px solid #c5d5e3;box-shadow:0 1px 2px #003d5204,0 18px 46px -26px #234c7247;container-type:size;background:#edf3f9}
+.scene-surface{position:absolute;inset:0;width:100%;height:100%;transform-origin:50% 35%;will-change:transform,opacity;backface-visibility:hidden}
+.product-scene>.scene-surface{display:flex;background:#fff}
+.architecture-scene>.scene-surface{background:#111921}
+.wireframe-scene>.scene-surface{background:#edf3f9}
+.process-scene>.scene-surface{background:#f2f6fb}
+.story-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:10px 5px 0;min-width:0}
+.layer-tabs{order:2;border:0;padding:0;gap:4px;flex-shrink:0;justify-content:flex-end}
+.layer-tabs button{font-size:10px;padding:11px 12px;gap:7px;border-radius:6px;color:#647e90;min-height:40px}
+.layer-tabs button span{font-size:8px}
+.layer-tabs button i{display:none}
+.layer-tabs button[aria-selected=true]{background:#003d52;color:#fff;box-shadow:0 3px 9px #003d5210}
+.layer-tabs button:not([aria-selected=true]):hover{background:#e6eff7}
+.layer-narrative{order:1;display:block;position:relative;padding:0;min-width:0;flex:1}
+.narrative-heading{gap:13px;align-items:baseline}
+.narrative-heading>span{font-size:8px;letter-spacing:.6px;color:#7991a3}
+.narrative-heading h2{font-size:24px;line-height:1.15;letter-spacing:-.8px;font-weight:400}
+.layer-narrative>p{margin:9px 0 0 48px;max-width:440px;font-size:10px;line-height:1.55;color:#617b8e}
+.next-layer{display:none}
+.matrix-rain{mix-blend-mode:screen}
+.matrix-rain span{top:0;animation:none!important;color:#72bdff;text-shadow:0 0 6px #72bdff50;opacity:.75;will-change:transform}
+.peel-edge{height:42px;filter:blur(4px);background:linear-gradient(0deg,#fff0,#b3c7d085 44%,#f3f7fb 54%,#fff0)}
+.eraser-sweep{width:35px;opacity:0;background:linear-gradient(90deg,#d9e8f800,#d1e2f5c4,#e6f1fd00)}
+.is-erasing .eraser-sweep{opacity:.7}
+.metrics{transform:translate3d(0,calc(var(--depth,0)*-7px),0);will-change:transform}
+.app-table{transform:translate3d(0,calc(var(--depth,0)*-3px),0)}
+.architecture-diagram{transform:translate3d(0,calc(var(--depth,0)*-6px),0)}
+.code-lines{transform:translate3d(0,calc(var(--depth,0)*-3px),0)}
+.wireframe-app{transform:translate3d(0,calc(var(--depth,0)*-9px),0) rotate(-1.2deg)}
+.note-one{transform:translate3d(0,calc(var(--depth,0)*4px),0) rotate(-5deg)}
+.note-two{transform:translate3d(0,calc(var(--depth,0)*5px),0) rotate(6deg)}
+.process-content{transform:translate3d(0,calc(var(--depth,0)*-4px),0)}
+.work-section{padding-top:105px;scroll-margin-top:68px}
+.about-section{scroll-margin-top:90px}
+.site-footer{position:relative;z-index:1;background:#f7f9fb}
+
+/* The interface grows with its canvas, instead of looking like a thumbnail. */
+.app-content{display:flex;flex-direction:column;padding-bottom:18px;min-height:0}
+.app-welcome,.metrics{flex-shrink:0}
+.app-table{display:flex;flex-direction:column;flex:1;min-height:110px}
+.table-heading,.table-footer{flex-shrink:0}
+.table-scroll{flex:1;min-height:0;overflow-x:auto;overflow-y:hidden}
+.table-footer{margin-top:auto}
+.sidebar-footer{flex-shrink:0}
+.architecture-body{height:calc(100% - 79px)}
+.architecture-diagram{justify-content:flex-start}
+.architecture-flow{margin-top:clamp(18px,4cqh,34px)}
+.architecture-badges{margin-top:auto;padding-top:18px}
+.wireframe-canvas{padding-top:clamp(45px,9cqh,80px)}
+.wireframe-app{height:73%;max-height:none}
+.process-scene .scene-surface{display:flex;flex-direction:column}
+.process-content{flex:1;min-height:0;display:flex;flex-direction:column;padding-bottom:32px}
+.bpmn-diagram{flex:1;min-height:0;display:flex;flex-direction:column;margin-top:clamp(22px,4cqh,36px)}
+.bpmn-lane{flex:1;min-height:0;height:auto}
+.value-stream{flex-shrink:0;margin-top:24px}
+.process-heading{flex-shrink:0}
+
+@container (min-width:900px){
+  .app-sidebar{width:208px;padding:24px 15px 0}
+  .app-brand{font-size:25px;gap:8px}
+  .relay-logo{width:28px;height:29px;font-size:25px}
+  .relay-logo>span{font-size:14px;line-height:21px}
+  .app-demo{font-size:7px;padding:3px 5px}
+  .app-search{margin-top:24px;padding:9px 8px;font-size:10px}
+  .app-search .icon{width:14px;height:14px}
+  .app-search kbd{font-size:8px}
+  .app-nav{margin-top:19px;gap:5px}
+  .app-nav button{padding:11px 10px;font-size:11px;gap:10px}
+  .app-nav .icon{width:16px;height:16px}
+  .app-nav button small{font-size:9px}
+  .sidebar-label{font-size:7px;letter-spacing:1.2px;margin-top:26px}
+  .workspace-item{font-size:10px;padding:10px 8px;gap:10px}
+  .sidebar-connections{margin-bottom:19px}
+  .connected-source{font-size:10px;padding:8px;gap:9px}
+  .connected-source>.source-logo{width:17px;height:17px;font-size:12px}
+  .connected-source>.source-logo.stripe{font-size:16px}
+  .sidebar-footer{padding:16px 3px;gap:9px}
+  .user-avatar{width:30px;height:30px;font-size:9px}
+  .sidebar-footer b{font-size:9px}
+  .sidebar-footer small{font-size:8px}
+  .app-topbar{height:52px;padding-inline:28px;font-size:10px}
+  .app-topbar .icon{width:14px;height:14px}
+  .sync-status{font-size:8px}
+  .mini-avatar{height:24px;width:24px;font-size:7px}
+  .app-content{padding:clamp(20px,3.8cqh,32px) 28px 20px}
+  .app-eyebrow{font-size:7px;letter-spacing:1.3px}
+  .app-welcome h3{font-size:clamp(21px,3.6cqh,28px);letter-spacing:-.85px;line-height:1.2;margin-top:9px}
+  .app-welcome h3>span{font-size:20px;margin-left:7px}
+  .app-welcome p{font-size:10px;margin-top:8px}
+  .date-range{font-size:9px;padding:9px 11px;gap:8px}
+  .date-range .icon{width:12px;height:12px}
+  .metrics{gap:16px;margin-top:clamp(18px,3.5cqh,28px)}
+  .metric{height:clamp(108px,19cqh,150px);padding:17px 18px 14px}
+  .metric>span{font-size:10px}
+  .metric>span .icon{width:15px;height:15px}
+  .metric>strong{font-size:clamp(29px,4.7cqh,39px);letter-spacing:-1.3px;margin-top:12px;line-height:1.1}
+  .metric>div:not(.sparkline):not(.avatar-stack):not(.time-bars){font-size:8px;margin-top:12px;gap:7px}
+  .metric small{font-size:7px}
+  .metric .metric-badge{font-size:7px;padding:4px 6px}
+  .mini-trend{font-size:19px}
+  .sparkline{bottom:17px;right:17px;height:37px;gap:4px}
+  .sparkline i{width:6px}
+  .avatar-stack{right:17px;bottom:16px}
+  .avatar-stack i{height:25px;width:25px;font-size:6px;margin-left:-7px}
+  .time-bars{right:17px;bottom:18px;gap:4px}
+  .time-bars i{height:19px;width:5px}
+  .app-table{margin-top:clamp(18px,3.5cqh,28px);border-radius:8px}
+  .table-heading{padding:15px 16px;gap:10px}
+  .table-heading>div{gap:9px}
+  .table-heading b{font-size:12px}
+  .count-badge{font-size:7px;padding:4px 7px}
+  .table-search{max-width:170px;padding:7px 9px;gap:6px}
+  .table-search .icon{height:12px;width:12px}
+  .table-search input{font-size:9px;width:120px}
+  .filter-button{font-size:9px;padding:7px 9px;gap:5px}
+  .filter-button .icon{height:12px;width:12px}
+  .app-add{font-size:9px;padding:9px 12px}
+  th{font-size:9px;padding:11px 16px}
+  th:first-child{width:30px}
+  .table-checkbox{height:11px;width:11px}
+  td{font-size:10px;padding:clamp(3px,calc((100cqh - 600px)*.04),10px) 16px}
+  .company-cell{gap:10px}
+  .company-cell b{font-size:10px}
+  .company-avatar{width:clamp(20px,3.5cqh,27px);height:clamp(20px,3.5cqh,27px);font-size:10px;border-radius:6px}
+  .person-cell{font-size:9px;gap:4px}
+  .person-cell small{font-size:7px}
+  .status-pill{font-size:8px;padding:4px 7px;gap:5px}
+  .status-pill i{height:4px;width:4px}
+  .table-amount{font-size:9px}
+  td .source-logo{height:16px;width:16px;font-size:11px;margin-right:6px}
+  td .source-logo.stripe{font-size:15px}
+  .table-footer{font-size:7px;padding:12px 16px}
+  .app-statusbar{padding:11px 28px;font-size:8px;min-height:34px}
+  .app-statusbar .icon{height:11px;width:11px}
+  .app-statusbar>span{gap:7px}
+  .architecture-top{height:49px}
+  .architecture-body{height:calc(100% - 79px)}
+  .architecture-diagram{padding:clamp(25px,5cqh,45px) 45px 24px}
+  .diagram-heading h3{font-size:clamp(30px,5cqh,42px)}
+  .diagram-heading>span{font-size:8px}
+  .code-lines{padding-top:clamp(20px,4cqh,35px)}
+  .code-line{line-height:1.95}
+  .code-line code{font-size:clamp(10px,1.6cqh,13px)}
+  .code-line>span{font-size:10px;width:48px;padding-right:17px}
+  .editor-tabs{height:42px;font-size:9px}
+  .editor-tabs>span{font-size:9px}
+  .architecture-flow{max-width:390px;margin-top:clamp(20px,5cqh,43px)}
+  .source-nodes{gap:22px}
+  .source-nodes>span{height:36px;width:36px}
+  .flow-connector{height:clamp(17px,3.6cqh,30px)}
+  .flow-connector-top:before{width:174px;left:-87px}
+  .arch-node{padding:clamp(12px,2cqh,18px) 19px}
+  .arch-node b{font-size:12px}
+  .arch-node small{font-size:8px}
+  .architecture-bottom-nodes .arch-node{padding:14px}
+  .architecture-bottom-nodes b{font-size:10px}
+  .architecture-bottom-nodes small{font-size:7px}
+  .architecture-badges{font-size:8px;padding-top:20px}
+  .wireframe-app{width:80%;height:73%}
+  .wireframe-app>aside{padding:28px 20px}
+  .wire-brand{font-size:23px}
+  .wire-nav{font-size:10px;padding-block:12px}
+  .wire-content{padding:25px}
+  .wire-content h3{font-size:22px}
+  .wire-appbar{height:43px;font-size:9px}
+  .wire-metrics{margin-top:25px;gap:17px}
+  .wire-metrics>div{height:clamp(70px,13cqh,108px);padding:15px}
+  .wire-metrics>div>span{font-size:9px}
+  .wire-metrics .wire-block{height:21px;margin-top:12px}
+  .wire-table-title{font-size:12px;margin-top:28px;padding-bottom:15px}
+  .wire-table-title>span{font-size:9px}
+  .wire-table>div{height:clamp(32px,6.5cqh,50px)}
+  .wire-note{font-size:22px}
+  .note-one{top:28px}
+  .note-two{font-size:22px;right:16px}
+  .note-three{bottom:32px;font-size:24px}
+  .prototype-pill{bottom:25px;font-size:6px}
+  .process-content{padding:clamp(25px,5cqh,42px) 36px 32px}
+  .process-heading h3{font-size:clamp(27px,4.6cqh,38px)}
+  .process-heading .app-eyebrow{font-size:8px}
+  .process-sticky-note{font-size:24px;padding-right:15px}
+  .bpmn-lane{padding-right:32px}
+  .process-node{min-width:165px;padding:18px 17px}
+  .process-node b{font-size:11px}
+  .process-node small{font-size:8px;margin-top:6px}
+  .process-node>.icon{height:15px;width:15px}
+  .lane-label{font-size:7px}
+  .process-event small{font-size:8px}
+  .process-event>i{width:32px;height:32px}
+  .process-event small{top:42px}
+  .process-gateway{height:29px;width:29px}
+  .process-gateway>small{font-size:7px;top:39px}
+  .process-insight b{font-size:11px}
+  .process-insight small{font-size:8px}
+  .revenue-node{padding-left:38px}
+  .revenue-node>span{top:27px}
+  .value-stream>div{font-size:11px;gap:27px}
+  .value-stream>span{font-size:7px}
+  .value-stream>span:last-child{font-size:6px}
+}
+
+@container (max-height:560px) and (min-width:900px){
+  .app-sidebar{padding-top:17px;width:185px}
+  .app-search{margin-top:17px}
+  .app-nav{margin-top:12px;gap:3px}
+  .app-nav button{padding-block:8px;font-size:10px}
+  .sidebar-label{margin-top:17px;font-size:6px}
+  .workspace-item{padding-block:7px;font-size:9px}
+  .sidebar-connections{margin-bottom:8px}
+  .connected-source{padding-block:5px;font-size:9px}
+  .sidebar-footer{padding-block:11px}
+  .app-topbar{height:42px}
+  .app-content{padding:18px 24px 14px}
+  .app-welcome h3{font-size:21px}
+  .app-welcome p{font-size:8px;margin-top:5px}
+  .metric{height:108px;padding:12px 14px}
+  .metric>strong{font-size:28px;margin-top:9px}
+  .metric>div:not(.sparkline):not(.avatar-stack):not(.time-bars){margin-top:9px}
+  .sparkline{height:24px;bottom:14px;right:14px;gap:3px}
+  .sparkline i{width:4px}
+  .avatar-stack i{width:20px;height:20px;font-size:5px}
+  .time-bars{gap:3px;right:14px}
+  .time-bars i{height:14px;width:3px}
+  .table-heading{padding:10px 12px}
+  .table-heading b{font-size:10px}
+  .table-search,.filter-button{padding:5px 7px}
+  .app-add{padding:7px 9px}
+  td{padding-block:3px}
+  .company-avatar{height:21px;width:21px;font-size:9px}
+  .table-footer{padding:8px 12px;font-size:6px}
+  .app-statusbar{padding-block:8px;min-height:26px;font-size:6px}
+  .architecture-diagram{padding:23px 35px 17px}
+  .diagram-heading h3{font-size:29px}
+  .architecture-flow{margin-top:19px;max-width:320px}
+  .source-nodes>span{width:27px;height:27px}
+  .flow-connector{height:15px}
+  .arch-node{padding:10px 14px}
+  .arch-node b{font-size:9px}
+  .arch-node small{font-size:6px}
+  .architecture-bottom-nodes .arch-node{padding:10px}
+  .architecture-bottom-nodes b{font-size:8px}
+  .architecture-bottom-nodes small{font-size:6px}
+  .architecture-badges{font-size:6px;padding-top:14px}
+  .code-line code{font-size:9px}
+  .code-line{line-height:1.7}
+  .code-lines{padding-top:15px}
+  .wireframe-canvas{padding-top:46px}
+  .wireframe-app>aside{padding:18px 14px}
+  .wire-brand{font-size:17px;margin-bottom:15px}
+  .wire-nav{font-size:8px;padding-block:8px}
+  .wire-appbar{height:31px;font-size:7px}
+  .wire-content{padding:16px 19px}
+  .wire-content h3{font-size:17px}
+  .wire-metrics{margin-top:17px;gap:12px}
+  .wire-metrics>div{height:65px;padding:10px}
+  .wire-metrics>div>span{font-size:7px}
+  .wire-metrics .wire-block{height:15px;margin-top:8px}
+  .wire-table-title{font-size:9px;margin-top:17px;padding-bottom:10px}
+  .wire-table-title>span{font-size:7px}
+  .wire-table>div{height:30px}
+  .note-three{bottom:20px;font-size:20px}
+  .prototype-pill{bottom:16px;font-size:5px}
+  .process-content{padding:20px 30px 22px}
+  .process-heading h3{font-size:26px}
+  .process-sticky-note{font-size:20px}
+  .bpmn-diagram{margin-top:20px}
+  .process-node{min-width:140px;padding:11px 14px}
+  .process-node b{font-size:9px}
+  .process-node small{font-size:6px;margin-top:4px}
+  .process-node>.icon{width:11px;height:11px}
+  .revenue-node{padding-left:30px}
+  .revenue-node>span{top:18px}
+  .process-insight b{font-size:9px}
+  .process-insight small{font-size:6px}
+  .process-event small{font-size:6px}
+  .process-event>i{height:25px;width:25px}
+  .process-event small{top:34px}
+  .value-stream{margin-top:18px}
+  .value-stream>div{font-size:9px}
+}
+
+@media(max-width:1100px){
+  .site-header{padding-inline:24px}
+  .experience.page-width{width:calc(100% - 36px)}
+  .experience-sticky{padding-top:81px;grid-template-rows:15px minmax(0,1fr) 96px;gap:12px}
+  .story-bottom{gap:16px;padding-inline:3px}
+  .layer-tabs{gap:2px}
+  .layer-tabs button{padding:10px 9px;font-size:9px;gap:6px}
+  .narrative-heading h2{font-size:22px}
+  .narrative-heading>span{font-size:7px}
+  .layer-narrative>p{font-size:9px;margin-left:42px;max-width:350px}
+}
+@media(max-width:850px){
+  .site-header{height:64px;padding-inline:22px}
+  .site-header .brand-wordmark{width:118px}
+  .site-header nav{font-size:10px;gap:22px}
+  .experience-sticky{padding-top:78px;padding-bottom:15px;grid-template-rows:14px minmax(0,1fr) 112px;gap:12px}
+  .stage-meta{font-size:6px;letter-spacing:1px}
+  .explore-hint{font-size:7px;gap:9px}
+  .story-bottom{flex-direction:column;align-items:stretch;justify-content:center;gap:14px;padding:8px 2px 0}
+  .layer-tabs{justify-content:space-between;gap:6px}
+  .layer-tabs button{padding:9px 12px;min-height:36px;font-size:9px}
+  .layer-narrative{flex:0;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .narrative-heading{gap:11px;align-items:baseline}
+  .narrative-heading h2{font-size:20px;white-space:nowrap;letter-spacing:-.6px}
+  .narrative-heading>span{font-size:6px;white-space:nowrap}
+  .layer-narrative>p{margin:0;font-size:9px;max-width:270px;line-height:1.5}
+  .app-content{padding-bottom:14px}
+  .architecture-diagram{padding-bottom:20px}
+  .architecture-flow{margin-top:25px}
+  .architecture-badges{padding-top:15px}
+}
+@media(max-width:600px){
+  .site-header{height:62px;padding-inline:17px}
+  .site-header .brand-wordmark{width:111px}
+  .site-header .header-cta{font-size:10px;gap:18px;padding:8px 11px}
+  .header-cta span{font-size:14px}
+  .experience.page-width{width:calc(100% - 24px);height:440svh}
+  .experience-sticky{padding-top:75px;padding-bottom:14px;grid-template-rows:11px minmax(0,1fr) 110px;gap:11px}
+  .stage-meta{padding-inline:2px;font-size:5px;letter-spacing:.75px}
+  .stage-meta>span{gap:5px}
+  .stage-meta .live-dot{height:3px;width:3px}
+  .explore-hint{font-size:0;gap:0;width:20px;justify-content:center}
+  .explore-hint span{font-size:12px}
+  .stage-shell:before{inset:8px 17px -7px;border-radius:10px}
+  .stage-shell:after{inset:4px 8px -4px;border-radius:10px}
+  .stage{border-radius:9px}
+  .story-bottom{padding:8px 1px 0;gap:13px;justify-content:space-between}
+  .layer-narrative{display:block}
+  .narrative-heading{gap:9px}
+  .narrative-heading h2{font-size:20px;line-height:1.2;letter-spacing:-.7px}
+  .narrative-heading>span{font-size:6px}
+  .layer-narrative>p{margin:6px 0 0 0;font-size:9px;line-height:1.55;max-width:340px;min-height:28px}
+  .layer-tabs{gap:2px}
+  .layer-tabs button{padding:8px 6px;min-height:32px;font-size:7px;gap:4px;letter-spacing:-.1px}
+  .layer-tabs button span{font-size:5px}
+  .app-sidebar{width:77px;padding-top:17px}
+  .app-brand{font-size:16px}
+  .app-search{margin-top:24px}
+  .app-nav{margin-top:17px}
+  .app-nav button{padding-block:11px;font-size:5px}
+  .sidebar-label{margin-top:28px}
+  .workspace-item{padding-block:11px}
+  .sidebar-connections{margin-bottom:18px}
+  .connected-source{padding-block:9px}
+  .sidebar-footer{padding-block:15px}
+  .app-content{padding:27px 13px 16px}
+  .app-welcome h3{font-size:22px;line-height:1.12;max-width:235px;letter-spacing:-.8px;margin-top:11px}
+  .app-welcome p{font-size:7px;line-height:1.55;max-width:210px;margin-top:9px}
+  .app-eyebrow{font-size:4px;letter-spacing:.7px}
+  .metrics{margin-top:25px;gap:7px}
+  .metric{height:110px;padding:12px 10px}
+  .metric>span{font-size:6px}
+  .metric>strong{font-size:27px;margin-top:12px}
+  .metric-change{font-size:5px}
+  .sparkline{bottom:13px;right:8px;height:19px;gap:2px}
+  .sparkline i{width:2px}
+  .avatar-stack{bottom:12px;right:9px}
+  .avatar-stack i{height:14px;width:14px;font-size:3px}
+  .app-table{margin-top:25px;min-height:145px}
+  .table-heading{padding:12px 8px}
+  .table-heading b{font-size:8px}
+  .table-heading>div:first-child{margin-bottom:8px}
+  .table-search{padding:6px}
+  .table-search input{font-size:8px;min-height:14px}
+  .filter-button,.app-add{min-height:25px;font-size:7px}
+  th{font-size:5px;padding-block:9px}
+  td{padding-block:13px}
+  .table-footer{font-size:5px;padding:9px 8px}
+  .app-statusbar{min-height:25px;font-size:4px;padding:9px 12px}
+  .architecture-body{height:calc(100% - 58px);flex-direction:column-reverse}
+  .architecture-diagram{height:59%;padding:22px 18px 15px}
+  .diagram-heading>span{font-size:5px}
+  .diagram-heading h3{font-size:24px;margin-top:8px;line-height:1.08}
+  .architecture-flow{margin-top:clamp(18px,4cqh,27px);max-width:245px}
+  .source-nodes>span{height:23px;width:23px}
+  .flow-connector{height:clamp(13px,2.8cqh,19px)}
+  .arch-node{padding:9px 12px}
+  .arch-node b{font-size:7px}
+  .arch-node small{font-size:5px}
+  .arch-node>.icon{height:14px;width:14px}
+  .architecture-bottom-nodes .arch-node{padding:8px}
+  .architecture-bottom-nodes b{font-size:6px}
+  .architecture-bottom-nodes small{font-size:4px}
+  .architecture-badges{font-size:4px;padding-top:12px;margin-top:auto;gap:8px}
+  .code-editor{height:41%;min-height:0}
+  .code-lines{padding-top:12px;overflow:hidden}
+  .code-line{line-height:1.8}
+  .code-line code{font-size:6.3px}
+  .wireframe-canvas{padding-top:65px}
+  .wireframe-app{height:72%;width:82%}
+  .wireframe-app>aside{padding-top:21px}
+  .wire-nav{padding-block:13px;font-size:4px}
+  .wire-content{padding-top:23px}
+  .wire-content h3{font-size:15px}
+  .wire-metrics{margin-top:25px}
+  .wire-metrics>div{height:82px;padding:9px}
+  .wire-metrics>div>span{font-size:6px}
+  .wire-table-title{margin-top:28px;font-size:6px}
+  .wire-table>div{height:45px}
+  .note-one{top:26px}
+  .note-three{bottom:36px;font-size:18px}
+  .prototype-pill{bottom:17px}
+  .process-top{height:39px;flex-shrink:0}
+  .process-content{padding:25px 12px 24px;flex:1;min-height:0}
+  .process-heading h3{font-size:24px;line-height:1.1}
+  .process-heading .app-eyebrow{font-size:4px}
+  .bpmn-diagram{margin-top:27px;flex:1;min-height:0}
+  .bpmn-lane{height:auto;flex:1;min-height:0}
+  .value-stream{margin-top:21px}
+  .value-stream>div{margin-top:12px;font-size:6px}
+  .work-section{padding-top:80px}
+}
+@media(max-width:600px) and (max-height:760px){
+  .experience-sticky{grid-template-rows:10px minmax(0,1fr) 105px;padding-top:72px;gap:10px}
+  .app-content{padding:19px 11px 12px}
+  .app-welcome h3{font-size:18px}
+  .app-welcome p{font-size:6px}
+  .metrics{margin-top:19px}
+  .metric{height:87px;padding:9px}
+  .metric>strong{font-size:23px;margin-top:9px}
+  .metric>span{font-size:5px}
+  .sparkline{height:15px;bottom:10px}
+  .app-table{margin-top:18px}
+  .app-nav{margin-top:10px}
+  .app-nav button{padding-block:8px}
+  .sidebar-label{margin-top:20px}
+  .workspace-item{padding-block:9px}
+  .connected-source{padding-block:6px}
+  .architecture-diagram{padding:15px 16px 10px}
+  .diagram-heading h3{font-size:21px;margin-top:5px}
+  .architecture-flow{margin-top:12px;max-width:215px}
+  .source-nodes>span{width:18px;height:18px}
+  .flow-connector{height:9px}
+  .arch-node{padding:6px 10px}
+  .arch-node b{font-size:6px}
+  .arch-node small{font-size:4px}
+  .architecture-bottom-nodes .arch-node{padding:5px 8px}
+  .architecture-bottom-nodes b{font-size:5px}
+  .architecture-bottom-nodes small{font-size:3.5px}
+  .architecture-badges{font-size:3px;padding-top:7px}
+  .code-line code{font-size:5.5px}
+  .wireframe-canvas{padding-top:54px}
+  .wireframe-app{height:71%}
+  .wire-content{padding-top:18px}
+  .wire-content h3{font-size:12px}
+  .wire-nav{padding-block:9px}
+  .wire-metrics{margin-top:19px}
+  .wire-metrics>div{height:61px;padding:7px}
+  .wire-table-title{margin-top:22px}
+  .wire-table>div{height:33px}
+  .note-one{top:20px;font-size:15px}
+  .note-three{font-size:16px;bottom:30px}
+  .process-content{padding:20px 11px 18px}
+  .process-heading h3{font-size:21px}
+  .bpmn-diagram{margin-top:22px}
+  .value-stream{margin-top:16px}
+}
+@media(max-width:360px){
+  .layer-tabs button{font-size:6.5px;padding-inline:4px;gap:3px}
+  .narrative-heading h2{font-size:18px}
+  .layer-narrative>p{font-size:8px}
+  .app-welcome h3{font-size:18px}
+  .metric>strong{font-size:23px}
+  .table-heading b{font-size:7px}
+  .app-add,.filter-button{font-size:6px}
+  .architecture-diagram{padding-inline:14px}
+  .diagram-heading h3{font-size:21px}
+}
+@media(max-height:650px) and (min-width:601px){
+  .site-header{height:52px;padding-inline:22px}
+  .site-header .brand-wordmark{width:104px}
+  .experience-sticky{padding-top:63px;padding-bottom:12px;grid-template-rows:12px minmax(0,1fr) 66px;gap:9px}
+  .stage-meta{font-size:6px}
+  .story-bottom{flex-direction:row;gap:15px;padding-top:5px}
+  .layer-narrative{display:block;flex:1}
+  .narrative-heading h2{font-size:18px}
+  .layer-narrative>p{font-size:8px;margin:6px 0 0 0;max-width:340px}
+  .layer-tabs button{font-size:8px;padding:7px 8px;min-height:30px}
+  .layer-tabs button span{font-size:6px}
+}
+@media(max-height:450px) and (min-width:601px){
+  .site-header{height:46px}
+  .experience-sticky{padding-top:54px;grid-template-rows:10px minmax(0,1fr) 54px;gap:7px;padding-bottom:8px}
+  .layer-narrative>p{display:none}
+  .narrative-heading h2{font-size:16px}
+  .layer-tabs{gap:0}
+  .layer-tabs button{font-size:7px;padding:7px;min-height:28px}
+  .stage{border-radius:7px}
+  .site-header nav{font-size:8px;gap:18px}
+  .stage-meta{font-size:5px}
+  .explore-hint{font-size:6px}
+}
+@media(prefers-reduced-motion:reduce){
+  .experience-sticky:before,.scene-surface,.metrics,.app-table,.architecture-diagram,.code-lines,.process-content{transform:none!important;will-change:auto}
+  .wireframe-app{transform:rotate(-1.2deg)!important}
+  .note-one{transform:rotate(-5deg)!important}
+  .note-two{transform:rotate(6deg)!important}
+}
